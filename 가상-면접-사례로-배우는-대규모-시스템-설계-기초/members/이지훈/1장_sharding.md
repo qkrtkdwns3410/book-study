@@ -75,7 +75,7 @@ Read Replica와 Partitioning까지 적용했음에도 트래픽을 감당하지 
 
 ## 모듈러 샤딩 (Modular Sharding)
 
-![모듈러 샤딩 다이어그램](./images/modular_sharding.png)
+![모듈러 샤딩 다이어그램](https://github.com/gn-book-study/book-study/blob/main/%EA%B0%80%EC%83%81-%EB%A9%B4%EC%A0%91-%EC%82%AC%EB%A1%80%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EA%B8%B0%EC%B4%88/members/%EC%9D%B4%EC%A7%80%ED%9B%88/images/moduler_sharding.png)
 
 모듈러 샤딩은 특정 키(PK 등)에 대해 나머지 연산을 적용하여 샤드를 결정하는 방식이다.
 그림처럼 해시함수를 통해 테이브을 여러 디비로 분산시킨다.
@@ -275,7 +275,7 @@ public class UserService {
 
 ## 레인지 샤딩 (Range Sharding)
 
-![레인지 샤딩 다이어그램](./images/sharding/range_sharding.png)
+![레인지 샤딩 다이어그램](https://github.com/gn-book-study/book-study/blob/main/%EA%B0%80%EC%83%81-%EB%A9%B4%EC%A0%91-%EC%82%AC%EB%A1%80%EB%A1%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EA%B8%B0%EC%B4%88/members/%EC%9D%B4%EC%A7%80%ED%9B%88/images/range_sharding.png)
 
 레인지 샤딩은 특정 컬럼의 값 범위(range)를 기준으로 샤드를 나누는 방식이다.
 
