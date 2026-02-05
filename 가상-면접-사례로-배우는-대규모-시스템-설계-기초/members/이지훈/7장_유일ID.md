@@ -65,8 +65,7 @@ snowflake는 1ms 단위로 생성한다고 합니다.
 
 ### Snowflake 와 sonyflake의 장단점
 
-
-그러나, Snowlfake 는 sony보다 할당된 비트수(12 bit sequence)가 더 많기때문에 서버가 트래픽이 몰려도 더많은 ID 를 커버할수 있다.
+Snowlfake 는 sony보다 할당된 비트수(12 bit sequence)가 더 많기때문에 서버가 트래픽이 몰려도 더많은 ID 를 커버할수 있다.
 
 또한  10ms 단위라서 시간 정밀도가 약해 동시 생성량 한계가 더빨리옵니다.
 
