@@ -32,12 +32,28 @@
 ## 구조
 
 ```
-앱 서버 → Follower cache → Leader cache → MySQL
+[읽기]  앱 → follower(hit이면 끝) → follower(miss) → leader → MySQL
+[쓰기]  앱 → follower → leader → MySQL → leader가 follower들에 invalidation 전파
 ```
 
-- follower cache: 앱 서버가 제일 먼저 붙는 캐시, 읽기 요청을 여기서 최대한 끝냄
-- leader cache: follower에 없을 때 가는 2차 캐시, DB에 더 가까운 계층
 - 2단계로 나눈 이유: `DB 보호` + `캐시 자체 병목 완화`
+- 둘 다 object와 association을 똑같이 캐싱함. 차이는 **역할**임
+
+### Follower Cache
+
+- 읽기 전용 복제본임
+- 앱 서버 가까이에 여러 대 배치됨 (지역별로 여러 개)
+- 읽기 요청을 최대한 여기서 처리함
+- 쓰기는 못 함 → 쓰기 요청 오면 leader로 넘김
+- cache miss 나면 leader에 물어봄
+
+### Leader Cache
+
+- shard당 딱 1대임 (단일 권한자)
+- 모든 write가 여기를 거침
+- follower가 miss 났을 때 응답해주는 역할
+- MySQL과 직접 통신함 (영구 저장/조회)
+- 쓰기 후 해당 follower들에게 invalidation(무효화) 알림 보냄
 
 ## MySQL은 버린게 아님
 
